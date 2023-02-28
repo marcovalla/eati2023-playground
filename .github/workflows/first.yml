@@ -17,9 +17,8 @@ jobs:
   name: "Mi segundo Job"
   runs-on: windows-latest
   steps:
-   - uses: actions/checkout@v3
    
    - name: "Escribiendo por consola"
      run: |
-      Write-Host Mi nombre es Marco,
-      Write-Host Estoy haciendo un curso de GitHub Actions
+      Write-Host "Mi nombre es Marco",
+      Write-Host "Estoy haciendo un curso de GitHub Actions"
