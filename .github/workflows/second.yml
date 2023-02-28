@@ -42,6 +42,9 @@ jobs:
      
  job5:
   name: "Mi quinto job"
+  needs:
+   - job3
+   - job4
   runs-on: ubuntu-latest
   steps:
    - name: "Fin del workflow"
