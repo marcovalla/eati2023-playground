@@ -31,14 +31,14 @@ jobs:
   runs-on: ubuntu-latest
   steps:
    - name: "Comando de ubuntu - env"
-     runs: env
+     run: env
      
  job4:
   name: "Mi cuarto job"
   runs-on: ubuntu-latest
   steps:
    - name: "Comando de ubuntu - cat"
-     runs: cat /etc/*release
+     run: cat /etc/*release
      
  job5:
   name: "Mi quinto job"
