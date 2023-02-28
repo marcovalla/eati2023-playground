@@ -1,0 +1,6 @@
+name: Second workflow
+
+on:
+ push:
+  branches:
+   - workflows2
