@@ -20,5 +20,5 @@ jobs:
    
    - name: "Escribiendo por consola"
      run: |
-      Write-Host "Mi nombre es Marco",
-      Write-Host "Estoy haciendo un curso de GitHub Actions"
+      echo "Mi nombre es Marco",
+      echo "Estoy haciendo un curso de GitHub Actions"
