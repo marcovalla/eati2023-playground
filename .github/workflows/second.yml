@@ -30,8 +30,8 @@ jobs:
    - job2
   runs-on: ubuntu-latest
   steps:
-   - name: "Comando de ubuntu - bash"
-     runs: bash env
+   - name: "Comando de ubuntu - env"
+     runs: env
      
  job4:
   name: "Mi cuarto job"
