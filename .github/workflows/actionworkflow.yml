@@ -1,0 +1,29 @@
+name: Action workflow
+
+on: [ "push" ]
+
+jobs:
+
+ job1:
+  runs-on: ubuntu-latest
+  steps:
+  
+   - uses: actions/checkout@v3
+     with:
+      repository: jmoyano/eati2023
+      ref: main
+      path: ./main
+      
+     name: "Haciendo cat en main"
+     run: cat message.txt
+   
+   - uses: actions/checkout@v3
+     with:
+      repository: jmoyano/eati2023
+      ref: anotherbranch
+      path: ./anotherbranch
+     
+     name: "Haciendo cat en anotherbranch"
+     run: cat message.txt
+      
+     
