@@ -24,7 +24,7 @@ jobs:
      uses: actions/upload-artifact@v3 
      with:
       name: envoutput
-      path: ./main
+      path: ./buildmain
       
  test:
   needs: [ "build" ]
@@ -36,6 +36,7 @@ jobs:
    - name: "Descargar el artefacto"
      uses: actions/download-artifact@v3
      with:
+      name: envoutput
       repository: jmoyano/cautious-meme
       ref: main
       path: ./main
