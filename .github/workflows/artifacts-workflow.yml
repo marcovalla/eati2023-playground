@@ -15,10 +15,10 @@ jobs:
      with:
       repository: jmoyano/cautious-meme
       ref: main
-      path: ./main
+      path: ./buildmain
       
    - name: "Compilando main.c"
-     run: gcc ./main/main.c -o main
+     run: gcc ./buildmain/main.c -o main
     
    - name: "Subiendo el artefacto" 
      uses: actions/upload-artifact@v3 
