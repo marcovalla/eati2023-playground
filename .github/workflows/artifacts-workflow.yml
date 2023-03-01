@@ -17,13 +17,13 @@ jobs:
       ref: main
       
    - name: "Compilando main.c"
-     run: gcc ./buildmain/main.c -o main
+     run: gcc ./main.c -o main
     
    - name: "Subiendo el artefacto" 
      uses: actions/upload-artifact@v3 
      with:
       name: envoutput
-      path: ./main
+      path: main
       
  test:
   needs: [ "build" ]
@@ -36,7 +36,6 @@ jobs:
      uses: actions/download-artifact@v3
      with:
       name: envoutput
-      path: ./main
     
    - name: "Ejecutando ls"
      run: ls
