@@ -24,7 +24,6 @@ jobs:
      uses: actions/upload-artifact@v3 
      with:
       name: envoutput
-      path: ./main
       
  test:
   needs: [ "build" ]
