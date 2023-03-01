@@ -43,7 +43,7 @@ jobs:
    - name: "Ejecutar main"
      run: |
       chmod +x ./main
-      resultado=$(./main/main)
+      resultado=$(./main)
       if [[ $resultado -eq 0 ]]; then
        echo "Exito"
       else
