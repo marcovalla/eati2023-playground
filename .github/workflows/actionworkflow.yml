@@ -15,7 +15,7 @@ jobs:
       path: ./main
       
    - name: "Haciendo cat en main"
-     run: cat message.txt
+     run: ls
    
    - uses: actions/checkout@v3
      with:
