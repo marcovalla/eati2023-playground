@@ -15,7 +15,6 @@ jobs:
      with:
       repository: jmoyano/cautious-meme
       ref: main
-      path: ./buildmain
       
    - name: "Compilando main.c"
      run: gcc ./buildmain/main.c -o main
@@ -24,6 +23,7 @@ jobs:
      uses: actions/upload-artifact@v3 
      with:
       name: envoutput
+      path: ./main
       
  test:
   needs: [ "build" ]
@@ -44,7 +44,7 @@ jobs:
    - name: "Ejecutar main"
      run: |
       chmod +x ./main
-      resultado=$(./main)
+      resultado=$(./main/main)
       if [[ $resultado -eq 0 ]]; then
        echo "Exito"
       else
