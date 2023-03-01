@@ -24,7 +24,7 @@ jobs:
      uses: actions/upload-artifact@v3 
      with:
       name: envoutput
-      path: ./buildmain
+      path: ./main
       
  test:
   needs: [ "build" ]
@@ -42,5 +42,12 @@ jobs:
    - name: "Ejecutando ls"
      run: ls
     
+   - name: "Ejecutar main"
+     run: |
+      resultado=$(./main)
+      if [[ $resultado -eq 0 ]]; then
+       echo "Exito"
+      else
+       echo "Falla"
       
      
