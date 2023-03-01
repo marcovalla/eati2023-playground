@@ -30,7 +30,8 @@ jobs:
      run: echo $SCOPE
  job2:
   runs-on: ubuntu-latest
-  run: echo $SCOPE
+  steps:
+   - run: echo $SCOPE
    
       
      
