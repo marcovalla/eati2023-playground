@@ -28,7 +28,7 @@ jobs:
   needs: [ "build" ]
   runs-on: ubuntu-latest
   env:
-   RESULTADO
+   RESULTADO: 0
   steps:
    - name: "Checkout del repositorio"
      uses: actions/checkout@v3
