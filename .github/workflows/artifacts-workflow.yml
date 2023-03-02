@@ -1,0 +1,60 @@
+name: Artifacts in my workflow
+on:
+ push:
+  branches:
+   - anotherbranch
+
+jobs:
+
+ build:
+  runs-on: ubuntu-latest
+  steps:
+   - name: "Checkout del repositorio"
+     uses: actions/checkout@v3
+     with:
+      repository: jmoyano/cautious-meme
+      ref: main
+      
+   - name: "Compilando main.c"
+     run: gcc ./main.c -o main
+    
+   - name: "Subiendo el artefacto" 
+     uses: actions/upload-artifact@v3 
+     with:
+      name: envoutput
+      path: main
+      
+ test:
+  needs: [ "build" ]
+  runs-on: ubuntu-latest
+  env:
+   RESULTADO: 0
+  steps:
+   - name: "Checkout del repositorio"
+     uses: actions/checkout@v3
+     
+   - name: "Descargar el artefacto"
+     uses: actions/download-artifact@v3
+     with:
+      name: envoutput
+    
+   - name: "Ejecutando ls"
+     run: ls
+    
+   - name: "Dar permisos"
+     run: chmod +x ./main
+     
+   - name: "Ejecutar main" 
+     run: ./main
+     id: resultado_main
+
+   - name: "Checkear valor resultado exito"
+     if: steps.resultado_main.exit-code == 0
+     run: echo "Exito" 
+     
+   - name: "Checkear valor resultado error"
+     if: steps.resultado_main.exit-code != 0
+     run: echo "Error"      
+     
+          
+     
