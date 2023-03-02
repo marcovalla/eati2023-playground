@@ -46,10 +46,12 @@ jobs:
       chmod +x ./main
       RE=$(./main)
       echo "::set-output name=RESULTADO::$resultado"
-   - name: "Verificando el resultado"
+   - name: "Verificando el resultado positivo"
      if: ${{ vars.RESULTADO == 0 }}
      run: echo "Exito"
-     if: ${{ vars.RESULTADO == 0 }}
+     
+   - name: "Verificando el resultado negativo"
+     if: ${{ vars.RESULTADO != 0 }}
      run: echo "Error"
           
      
