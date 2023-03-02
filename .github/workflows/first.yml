@@ -1,0 +1,25 @@
+name: First workflow
+
+on: [ "push" ]
+
+jobs:
+
+ job1:
+  name: "Mi primer Job"
+  runs-on: ubuntu-latest
+  steps:
+  
+   - uses: actions/checkout@v3
+   
+   - name: "Script de eati.py"
+     run: python eati.py "EATI" "2023"
+  
+ job2:
+  name: "Mi segundo Job"
+  runs-on: windows-latest
+  steps:
+   
+   - name: "Escribiendo por consola"
+     run: |
+      echo "Mi nombre es Marco"
+      echo "Estoy haciendo un curso de GitHub Actions"
