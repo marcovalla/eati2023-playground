@@ -46,9 +46,10 @@ jobs:
       chmod +x ./main
       resultado=$(./main)
       if [ $resultado -eq 0 ]; then
-       echo "::set-output name=resultado::Exito"
+       echo "Exito"
       else
-       echo "::set-output name=resultado::Error"
+       echo "Error"
       fi
+     
           
      
