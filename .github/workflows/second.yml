@@ -1,0 +1,52 @@
+name: Second workflow
+
+on:
+ push:
+  branches:
+   - workflows2
+
+jobs:
+
+ job1:
+  name: "Mi primer job"
+  runs-on: ubuntu-20.04
+  steps:
+   - uses: actions/checkout@v3
+   
+   - name: "Script eati con Workflow y Dependencies"
+     run: python eati.py "Workflow" "Dependencies"
+     
+ job2:
+  name: "Mi segundo job"
+  runs-on: windows-2019
+  steps:
+   - name: "Comando de Windows - Get-Command"
+     run: Get-Command
+  
+ job3:
+  name: "Mi tercer job"
+  needs:
+   - job1
+   - job2
+  runs-on: ubuntu-latest
+  steps:
+   - name: "Comando de ubuntu - env"
+     run: env
+     
+ job4:
+  name: "Mi cuarto job"
+  runs-on: ubuntu-latest
+  steps:
+   - name: "Comando de ubuntu - cat"
+     run: cat /etc/*release
+     
+ job5:
+  name: "Mi quinto job"
+  needs:
+   - job3
+   - job4
+  runs-on: ubuntu-latest
+  steps:
+   - name: "Fin del workflow"
+     run: echo "Fin workflow"
+  
