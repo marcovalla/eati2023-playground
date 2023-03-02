@@ -1,5 +1,4 @@
 name: Artifacts in my workflow
-permissions: read-all|write-all
 on:
  push:
   branches:
@@ -41,6 +40,16 @@ jobs:
      run: ls
     
    - name: "Ejecutar main"
-     run: ./main
-      
+     env:
+      RESULTADO
+     run: |
+      chmod +x ./main
+      RE=$(./main)
+      echo "::set-output name=RESULTADO::$resultado"
+   - name: "Verificando el resultado"
+     if: ${{ vars.RESULTADO == 0 }}
+     run: echo "Exito"
+     if: ${{ vars.RESULTADO == 0 }}
+     run: echo "Error"
+          
      
