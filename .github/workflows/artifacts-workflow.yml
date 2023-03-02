@@ -44,15 +44,11 @@ jobs:
    - name: "Ejecutar main"
      run: |
       chmod +x ./main
-      res = $(./main)
-      echo "{RESULTADO}={res}" >> $GITHUB_OUTPUT
-      
-   - name: "Verificando el resultado positivo"
-     if: ${{ vars.RESULTADO == 0 }}
-     run: echo "Exito"
-     
-   - name: "Verificando el resultado negativo"
-     if: ${{ vars.RESULTADO != 0 }}
-     run: echo "Error"
+      resultado=$(./main)
+      if [ $resultado -eq 0 ]; then
+       echo "::set-output name=resultado::Exito"
+      else
+       echo "::set-output name=resultado::Error"
+      fi
           
      
